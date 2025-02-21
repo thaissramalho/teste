@@ -1,31 +1,27 @@
 import requests
-import json
 import datetime
+import time
 
 # URL do Webhook.site
-WEBHOOK_URL = "https://webhook.site/204c9451-da59-4019-9b17-782f26ae20d0"
+WEBHOOK_URL = "	https://webhook.site/204c9451-da59-4019-9b17-782f26ae20d0"
 
-# Simula um deploy
-def deploy():
-    print("Realizando deploy...")
-    
-    # Aqui você colocaria os comandos reais de deploy
-    success = True  # Simulando sucesso no deploy
+def send_webhook():
+    print("Enviando webhook...")
 
-    # Dados a serem enviados no webhook
-    payload = {
-        "status": "deploy_successful" if success else "deploy_failed",
+    params = {
+        "status": "deploy_successful",
         "timestamp": datetime.datetime.utcnow().isoformat(),
         "message": "Deploy concluído com sucesso!"
     }
 
-    # Enviar requisição POST para Webhook.site
-    response = requests.post(WEBHOOK_URL, json=payload, headers={"Content-Type": "application/json"})
+    response = requests.get(WEBHOOK_URL, params=params)
 
     if response.status_code == 200:
-        print("Webhook enviado com sucesso!")
+        print(f"Webhook enviado com sucesso! {datetime.datetime.now()}")
     else:
         print(f"Erro ao enviar webhook: {response.status_code} - {response.text}")
 
-# Executar deploy e enviar webhook
-deploy()
+# Loop infinito para rodar de 2 em 2 minutos
+while True:
+    send_webhook()
+    time.sleep(120)  # Espera 2 minutos (120 segundos)
