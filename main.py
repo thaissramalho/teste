@@ -22,6 +22,6 @@ def send_webhook():
         print(f"Erro ao enviar webhook: {response.status_code} - {response.text}")
 
 # Loop infinito para rodar de 2 em 2 minutos
-while True:
-    send_webhook()
-    time.sleep(120)  # Espera 2 minutos (120 segundos)
+#while True:
+    #send_webhook()
+    #time.sleep(120)  # Espera 2 minutos (120 segundos)
