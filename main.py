@@ -20,7 +20,7 @@ def send_webhook():
         print(f"Webhook enviado com sucesso! {datetime.datetime.now()}")
     else:
         print(f"Erro ao enviar webhook: {response.status_code} - {response.text}")
-
+#testando
 # Loop infinito para rodar de 2 em 2 minutos
 #while True:
     #send_webhook()
