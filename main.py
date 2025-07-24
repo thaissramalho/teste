@@ -6,7 +6,7 @@ import time
 WEBHOOK_URL = "	https://webhook.site/204c9451-da59-4019-9b17-782f26ae20d0"
 
 def send_webhook():
-    print("Enviando webhook...")
+    print("teste")
 
     params = {
         "status": "deploy_successful",
